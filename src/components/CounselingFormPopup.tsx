@@ -45,17 +45,16 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md mx-auto p-0 gap-0 bg-background border-border">
-        <div className="relative bg-card/95 backdrop-blur-md border border-border rounded-2xl p-4 shadow-lg">
-          {/* Close Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            className="absolute top-2 right-2 h-6 w-6 rounded-full hover:bg-destructive hover:text-destructive-foreground"
-          >
-            <X className="h-4 w-4" />
-          </Button>
+      <DialogContent className="max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mx-auto p-4 gap-0 bg-card/95 backdrop-blur-md border-border rounded-2xl shadow-lg min-h-[440px] md:min-h-[480px] lg:min-h-[520px]">
+        {/* Close Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onClose}
+          className="absolute top-2 right-2 h-6 w-6 rounded-full hover:bg-destructive hover:text-destructive-foreground z-50"
+        >
+          <X className="h-4 w-4" />
+        </Button>
 
           <div className="text-center mb-3">
             <h3 className="text-sm font-bold text-foreground mb-1">
@@ -81,23 +80,29 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-2 text-xs">
-            <Input
-              type="text"
-              placeholder="Enter your full name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="bg-background border-border focus:border-primary text-xs h-8"
-              required
-            />
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-foreground">NAME :</label>
+              <Input
+                type="text"
+                placeholder="Enter your full name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="bg-background border-border focus:border-primary text-xs h-8 w-[85%]"
+                required
+              />
+            </div>
 
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="bg-background border-border focus:border-primary text-xs h-8"
-              required
-            />
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-foreground">EMAIL :</label>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="bg-background border-border focus:border-primary text-xs h-8 w-[85%]"
+                required
+              />
+            </div>
 
             <div className="flex">
               <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
@@ -117,9 +122,9 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
               <SelectTrigger className="bg-background border-border focus:border-primary text-xs h-8">
                 <SelectValue placeholder="Select course*" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-popover border-border shadow-lg z-50">
                 {courses.map((course) => (
-                  <SelectItem key={course} value={course}>
+                  <SelectItem key={course} value={course} className="text-xs">
                     {course}
                   </SelectItem>
                 ))}
@@ -157,7 +162,6 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
               <span className="text-primary font-medium">Limited Seats</span>
             </div>
           </div>
-        </div>
       </DialogContent>
     </Dialog>
   );
