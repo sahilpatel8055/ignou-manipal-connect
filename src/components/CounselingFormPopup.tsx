@@ -83,26 +83,26 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-2 text-xs">
-            <div className="space-y-1">
-              <label className="text-xs font-medium text-foreground">NAME :</label>
+            <div className="flex items-center gap-2">
+              <label className="text-xs font-medium text-foreground w-12 flex-shrink-0">NAME :</label>
               <Input
                 type="text"
                 placeholder="Enter your full name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="bg-background border-border focus:border-primary text-xs h-8 w-[85%]"
+                className="bg-background border-border focus:border-primary text-xs h-8 flex-1"
                 required
               />
             </div>
 
-            <div className="space-y-1">
-              <label className="text-xs font-medium text-foreground">EMAIL :</label>
+            <div className="flex items-center gap-2">
+              <label className="text-xs font-medium text-foreground w-12 flex-shrink-0">EMAIL :</label>
               <Input
                 type="email"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="bg-background border-border focus:border-primary text-xs h-8 w-[85%]"
+                className="bg-background border-border focus:border-primary text-xs h-8 flex-1"
                 required
               />
             </div>
@@ -134,7 +134,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
               </SelectContent>
             </Select>
 
-            <div className="flex items-start space-x-2">
+            <div className="flex items-start space-x-2 mt-1">
               <Checkbox 
                 id="consent"
                 checked={formData.consent}
@@ -148,7 +148,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
 
             <Button 
               type="submit" 
-              className="w-full bg-gradient-primary hover:opacity-90 transition-smooth text-xs h-8"
+              className="w-full bg-gradient-primary hover:opacity-90 transition-smooth text-xs h-8 mt-1"
               disabled={!formData.consent}
             >
               Enroll Now
