@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar, Users, X } from 'lucide-react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 interface CounselingFormPopupProps {
   isOpen: boolean;
@@ -56,7 +56,10 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
           <X className="h-4 w-4" />
         </Button>
 
-          <div className="text-center mb-3">
+        <DialogTitle className="sr-only">Counseling Form</DialogTitle>
+        <DialogDescription className="sr-only">Fill out this form to get counseling information about our online courses</DialogDescription>
+
+        <div className="text-center mb-3">
             <h3 className="text-sm font-bold text-foreground mb-1">
               Join <span className="text-primary">50,000+</span> Learners Across India
             </h3>
