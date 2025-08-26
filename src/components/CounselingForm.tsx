@@ -54,50 +54,62 @@ const CounselingForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-2 text-xs">{/* Reduced spacing and smaller text */}
-        <Input
-          type="text"
-          placeholder="Enter your full name"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="bg-background border-border focus:border-primary text-xs h-8"
-          required
-        />
-
-        <Input
-          type="email"
-          placeholder="Enter your email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="bg-background border-border focus:border-primary text-xs h-8"
-          required
-        />
-
-        <div className="flex">
-          <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
-            <span className="text-xs text-muted-foreground">🇮🇳 +91</span>
-          </div>
+        <div className="flex items-center gap-2">
+          <label className="text-xs text-muted-foreground whitespace-nowrap min-w-fit">Name :</label>
           <Input
-            type="tel"
-            placeholder="Enter your mobile number"
-            value={formData.mobile}
-            onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-            className="bg-background border-border focus:border-primary rounded-l-none text-xs h-8"
+            type="text"
+            placeholder="Enter your full name"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="bg-background border-border focus:border-primary text-xs h-8 flex-1"
             required
           />
         </div>
 
-        <Select value={formData.course} onValueChange={(value) => setFormData({ ...formData, course: value })}>
-          <SelectTrigger className="bg-background border-border focus:border-primary text-xs h-8">
-            <SelectValue placeholder="Select course*" />
-          </SelectTrigger>
-          <SelectContent>
-            {courses.map((course) => (
-              <SelectItem key={course} value={course}>
-                {course}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className="flex items-center gap-2">
+          <label className="text-xs text-muted-foreground whitespace-nowrap min-w-fit">Email :</label>
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            className="bg-background border-border focus:border-primary text-xs h-8 flex-1"
+            required
+          />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <label className="text-xs text-muted-foreground whitespace-nowrap min-w-fit">Mobile No. :</label>
+          <div className="flex flex-1">
+            <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
+              <span className="text-xs text-muted-foreground">🇮🇳 +91</span>
+            </div>
+            <Input
+              type="tel"
+              placeholder="Enter your mobile number"
+              value={formData.mobile}
+              onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+              className="bg-background border-border focus:border-primary rounded-l-none text-xs h-8"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <label className="text-xs text-muted-foreground whitespace-nowrap min-w-fit">Course :</label>
+          <Select value={formData.course} onValueChange={(value) => setFormData({ ...formData, course: value })}>
+            <SelectTrigger className="bg-background border-border focus:border-primary text-xs h-8 flex-1">
+              <SelectValue placeholder="Select course*" />
+            </SelectTrigger>
+            <SelectContent>
+              {courses.map((course) => (
+                <SelectItem key={course} value={course}>
+                  {course}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
         <div className="flex items-start space-x-2">
           <Checkbox 

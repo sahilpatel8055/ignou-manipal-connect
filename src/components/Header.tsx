@@ -4,8 +4,10 @@ import { ChevronDown, Menu, X, Search, MoreVertical } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import mujLogo from '@/assets/muj_logo-removebg-preview.png';
 import { Link } from 'react-router-dom';
+import { useCounselingPopup } from '@/hooks/useCounselingPopup';
 
 const Header = () => {
+  const { triggerPopup } = useCounselingPopup();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -98,9 +100,9 @@ const Header = () => {
             ))}
             
             {/* Apply Now Button */}
-            <Button size="sm" className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-primary">
-              Apply Now
-            </Button>
+             <Button size="sm" className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-primary" onClick={triggerPopup}>
+               Apply Now
+             </Button>
           </div>
 
           {/* Mobile navigation (visible on mobile) */}
@@ -147,9 +149,9 @@ const Header = () => {
                   <Search className="w-4 h-4 mr-2" />
                   Search Courses
                 </Button>
-                <Button className="w-full bg-gradient-primary hover:opacity-90 transition-smooth">
-                  Apply Now
-                </Button>
+                 <Button className="w-full bg-gradient-primary hover:opacity-90 transition-smooth" onClick={triggerPopup}>
+                   Apply Now
+                 </Button>
               </div>
             </nav>
           </div>

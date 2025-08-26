@@ -5,6 +5,7 @@ import heroImage from '@/assets/ChatGPT_Image_Aug_22__2025__02_36_01_PM-removebg
 import ugcIcon from '@/assets/icons/ugc.png';
 import React, { useState, useEffect } from 'react';
 import CounselingForm from './CounselingForm';
+import { useCounselingPopup } from '@/hooks/useCounselingPopup';
 
 // New component for the counting animation
 const AnimatedNumber = ({ endValue, duration = 2000 }) => {
@@ -27,8 +28,10 @@ const AnimatedNumber = ({ endValue, duration = 2000 }) => {
 };
 
 const HeroSection = () => {
+  const { triggerPopup } = useCounselingPopup();
+
   return (
-    <section className="relative min-h-[70vh] flex hero-pattern overflow-hidden pt-28 pb-8">
+    <section className="relative min-h-[70vh] flex hero-pattern overflow-hidden pt-32 lg:pt-36 xl:pt-40 pb-8 lg:pb-12 xl:pb-16">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left Content */}
@@ -75,6 +78,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-primary text-lg px-8 py-6"
+                onClick={triggerPopup}
               >
                 Apply Now
               </Button>

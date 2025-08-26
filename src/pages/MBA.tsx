@@ -15,6 +15,7 @@ import CourseraBenefitsSection from "@/components/CourseraBenefitsSection";
 import CourseCurriculumSection from "@/components/CourseCurriculumSection";
 import ManipalSampleDegreeSection from "@/components/ManipalSampleDegreeSection";
 import CourseFeesSection from "@/components/CourseFeesSection"; // New import
+import { useCounselingPopup } from '@/hooks/useCounselingPopup';
 
 const mbaSpecializations = [
   // ... (existing specialization data)
@@ -31,6 +32,7 @@ const mbaSpecializations = [
 ];
 
 const MBA = () => {
+  const { triggerPopup } = useCounselingPopup();
   const scrollContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -116,10 +118,10 @@ const MBA = () => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={triggerPopup}>
                   Apply Now
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={triggerPopup}>
                   Download Brochure
                 </Button>
               </div>
@@ -267,10 +269,10 @@ const MBA = () => {
             Join thousands of professionals who have transformed their careers with our Online MBA
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={triggerPopup}>
               Apply Now
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={triggerPopup}>
               Request Callback
             </Button>
           </div>

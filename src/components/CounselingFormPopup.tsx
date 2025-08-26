@@ -77,7 +77,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
                 Scholarships
               </div>
             </div>
-            <p className="text-xs text-card-foreground font-medium">
+            <p className="text-xs text-card-foreground font-medium mb-2 lg:mb-2 xl:mb-2">
               Submit your details and we'll contact you soon!
             </p>
           </div>
@@ -107,18 +107,21 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
               />
             </div>
 
-            <div className="flex">
-              <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
-                <span className="text-xs text-muted-foreground">🇮🇳 +91</span>
+            <div className="flex items-center gap-2">
+              <label className="text-xs text-muted-foreground whitespace-nowrap min-w-fit">Mobile No. :</label>
+              <div className="flex flex-1">
+                <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
+                  <span className="text-xs text-muted-foreground">🇮🇳 +91</span>
+                </div>
+                <Input
+                  type="tel"
+                  placeholder="Enter your mobile number"
+                  value={formData.mobile}
+                  onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                  className="bg-background border-border focus:border-primary rounded-l-none text-xs h-8"
+                  required
+                />
               </div>
-              <Input
-                type="tel"
-                placeholder="Enter your mobile number"
-                value={formData.mobile}
-                onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                className="bg-background border-border focus:border-primary rounded-l-none text-xs h-8"
-                required
-              />
             </div>
 
             <Select value={formData.course} onValueChange={(value) => setFormData({ ...formData, course: value })}>
