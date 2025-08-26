@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Percent, GraduationCap, ChevronRight } from "lucide-react";
 
 const courseFees = {
@@ -127,8 +127,10 @@ const CourseFeesSection = () => {
       {/* Scholarship Modal */}
       <Dialog open={isScholarshipModalOpen} onOpenChange={setIsScholarshipModalOpen}>
         <DialogContent className="sm:max-w-md">
+          <DialogTitle>Manipal Scholarship Scheme</DialogTitle>
+          <DialogDescription>Details about available scholarships and eligibility criteria</DialogDescription>
           <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4 text-center">Manipal Scholarship Scheme</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center sr-only">Manipal Scholarship Scheme</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full">
                 <thead>
