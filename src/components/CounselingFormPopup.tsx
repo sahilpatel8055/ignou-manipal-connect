@@ -87,7 +87,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
                 placeholder="Enter your full name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="bg-background border-border focus:border-primary text-xs h-8 flex-1"
+                className="bg-background border border-gray-200 hover:border-primary focus:border-primary text-xs h-8 flex-1"
                 required
               />
             </div>
@@ -99,7 +99,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="bg-background border-border focus:border-primary text-xs h-8 flex-1"
+                className="bg-background border border-gray-200 hover:border-primary focus:border-primary text-xs h-8 flex-1"
                 required
               />
             </div>
@@ -107,25 +107,25 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
             <div className="flex items-center gap-2">
               <label className="text-xs font-medium text-foreground whitespace-nowrap min-w-fit">Mobile No. :</label>
               <div className="flex flex-1">
-                <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
-                  <span className="text-xs text-muted-foreground">+91</span>
+                <div className="flex items-center bg-background border border-r-0 border-gray-200 rounded-l-md px-2 h-8">
+                  <span className="text-xs text-muted-foreground">🇮🇳 +91</span>
                 </div>
                 <Input
                   type="tel"
                   placeholder="Enter your mobile number"
                   value={formData.mobile}
                   onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                  className="bg-background border-border focus:border-primary rounded-l-none text-xs h-8"
+                  className="bg-background border border-gray-200 hover:border-primary focus:border-primary rounded-l-none text-xs h-8"
                   required
                 />
               </div>
             </div>
 
             <Select value={formData.course} onValueChange={(value) => setFormData({ ...formData, course: value })}>
-              <SelectTrigger className="bg-background border-border focus:border-primary text-xs h-8">
+              <SelectTrigger className="bg-background border border-gray-200 hover:border-primary focus:border-primary text-xs h-8">
                 <SelectValue placeholder="Select course*" />
               </SelectTrigger>
-              <SelectContent className="bg-popover border-border shadow-lg z-50">
+              <SelectContent className="bg-popover border-gray-200 shadow-lg z-50">
                 {courses.map((course) => (
                   <SelectItem key={course} value={course} className="text-xs">
                     {course}
