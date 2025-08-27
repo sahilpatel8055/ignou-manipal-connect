@@ -108,7 +108,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
               <label className="text-xs font-medium text-foreground whitespace-nowrap min-w-fit">Mobile No. :</label>
               <div className="flex flex-1">
                 <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
-                  <span className="text-xs text-muted-foreground">🇮🇳 +91</span>
+                  <span className="text-xs text-muted-foreground">+91</span>
                 </div>
                 <Input
                   type="tel"
