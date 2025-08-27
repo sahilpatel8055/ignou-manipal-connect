@@ -91,7 +91,7 @@ const CourseCurriculumSection = () => {
               </button>
             </div>
             <Button variant="outline" className="bg-white text-gray-900 hover:bg-gray-100">
-              Download MBA Brochure Now
+              Download MBA Brochure
             </Button>
           </div>
         </div>
