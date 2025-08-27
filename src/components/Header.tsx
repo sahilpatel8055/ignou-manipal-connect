@@ -10,6 +10,7 @@ const Header = () => {
   const { triggerPopup } = useCounselingPopup();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [institutionsSubDropdown, setInstitutionsSubDropdown] = useState<string>('Manipal University Jaipur');
 
   const navigationItems = [
     {
@@ -92,7 +93,7 @@ const Header = () => {
                 key={item.title}
                 className="relative"
                 onMouseEnter={() => item.hasDropdown && setOpenDropdown(item.title)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseLeave={() => item.hasDropdown && setTimeout(() => setOpenDropdown(null), 200)}
               >
                 {item.hasDropdown ? (
                   <>
@@ -101,19 +102,36 @@ const Header = () => {
                       <ChevronDown className="w-4 h-4" />
                     </button>
                      {openDropdown === item.title && (
-                        <div className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-lg p-3 z-50 backdrop-blur-sm">
+                        <div 
+                          className="absolute top-full left-0 mt-2 w-80 bg-background border border-border rounded-lg shadow-lg p-3 z-50 backdrop-blur-sm"
+                          onMouseEnter={() => setOpenDropdown(item.title)}
+                          onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 200)}
+                        >
                           {item.title === 'Institutions' ? (
                             // Special layout for institutions with sub-courses
                             <div className="space-y-4">
                               {item.items?.map((subItem) => (
                                 <div key={subItem.name} className="space-y-2">
-                                  <a
-                                    href={subItem.href}
-                                    className="block px-3 py-2 text-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-smooth font-medium border-b border-border pb-2"
+                                  <div 
+                                    className="flex items-center justify-between cursor-pointer"
+                                    onClick={() => setInstitutionsSubDropdown(
+                                      institutionsSubDropdown === subItem.name ? '' : subItem.name
+                                    )}
                                   >
-                                    {subItem.name}
-                                  </a>
-                                  {subItem.courses && subItem.courses.length > 0 && (
+                                    <a
+                                      href={subItem.href}
+                                      className="block px-3 py-2 text-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-smooth font-medium border-b border-border pb-2 flex-1"
+                                      onClick={(e) => e.stopPropagation()}
+                                    >
+                                      {subItem.name}
+                                    </a>
+                                    <button className="p-1 hover:bg-accent rounded">
+                                      <ChevronDown className={`w-4 h-4 transition-transform ${
+                                        institutionsSubDropdown === subItem.name ? 'rotate-180' : ''
+                                      }`} />
+                                    </button>
+                                  </div>
+                                  {subItem.courses && subItem.courses.length > 0 && institutionsSubDropdown === subItem.name && (
                                     <div className="pl-4 space-y-1">
                                       {subItem.courses.map((course) => (
                                         <a

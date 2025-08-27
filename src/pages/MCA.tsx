@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { useCounselingPopup } from '@/hooks/useCounselingPopup';
 import { Star, Clock, Users, BookOpen, Award, CheckCircle, Brain, Lock, Lightbulb, TrendingUp, Handshake, Globe, BarChart2, ChevronLeft, ChevronRight, Code, Database, Monitor, Smartphone } from "lucide-react";
 import MCAImage from "@/assets/course-mca.jpg";
 import SpecializationCard from "@/components/SpecializationCard";
@@ -28,6 +29,7 @@ const mcaSpecializations = [
 ];
 
 const MCA = () => {
+  const { triggerPopup } = useCounselingPopup();
   const scrollContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -114,10 +116,10 @@ const MCA = () => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={triggerPopup}>
                   Apply Now
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={triggerPopup}>
                   Download Brochure
                 </Button>
               </div>
@@ -265,10 +267,10 @@ const MCA = () => {
             Join the next generation of technology leaders with our comprehensive MCA program
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={triggerPopup}>
               Apply Now
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={triggerPopup}>
               Request Callback
             </Button>
           </div>

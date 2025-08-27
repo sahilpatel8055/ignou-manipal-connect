@@ -78,7 +78,7 @@ export const useCounselingPopup = (): CounselingPopupLogic => {
   };
 
   const triggerPopup = () => {
-    // Always show popup when triggered by CTA buttons, bypass all checks
+    // Force popup to show, bypass all conditions for CTA buttons
     setShowPopup(true);
   };
 

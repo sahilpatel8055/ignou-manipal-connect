@@ -45,7 +45,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mx-auto p-4 gap-0 bg-card/95 backdrop-blur-md border-border rounded-2xl shadow-lg min-h-[440px] md:min-h-[480px] lg:min-h-[520px]">
+      <DialogContent className="max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mx-auto p-4 gap-0 bg-card/95 backdrop-blur-md border-border rounded-2xl shadow-lg min-h-[440px] md:min-h-[430px] lg:min-h-[470px]">
         {/* Close Button */}
         <Button
           variant="ghost"
@@ -108,7 +108,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
             </div>
 
             <div className="flex items-center gap-2">
-              <label className="text-xs text-muted-foreground whitespace-nowrap min-w-fit">Mobile No. :</label>
+              <label className="text-xs font-medium text-foreground whitespace-nowrap min-w-fit">Mobile No. :</label>
               <div className="flex flex-1">
                 <div className="flex items-center bg-background border border-r-0 border-border rounded-l-md px-2 h-8">
                   <span className="text-xs text-muted-foreground">🇮🇳 +91</span>

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { useCounselingPopup } from '@/hooks/useCounselingPopup';
 import { Star, Clock, Users, BookOpen, Award, CheckCircle, Brain, Lock, Lightbulb, TrendingUp, Handshake, Globe, BarChart2, ChevronLeft, ChevronRight, Calculator, DollarSign, FileText } from "lucide-react";
 import BCOMImage from "@/assets/course-bcom.jpg";
 import SpecializationCard from "@/components/SpecializationCard";
@@ -28,6 +29,7 @@ const bcomSpecializations = [
 ];
 
 const BCOM = () => {
+  const { triggerPopup } = useCounselingPopup();
   const scrollContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -115,10 +117,10 @@ const BCOM = () => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={triggerPopup}>
                   Apply Now
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={triggerPopup}>
                   Download Brochure
                 </Button>
               </div>
@@ -266,10 +268,10 @@ const BCOM = () => {
             Start your career in commerce and finance with our comprehensive BCom program
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={triggerPopup}>
               Apply Now
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={triggerPopup}>
               Request Callback
             </Button>
           </div>

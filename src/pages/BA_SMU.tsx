@@ -9,11 +9,13 @@ import SpecializationCard from '@/components/SpecializationCard';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { useCounselingPopup } from '@/hooks/useCounselingPopup';
 import { Clock, Users, Calendar, Award, BookOpen, TrendingUp, DollarSign, Briefcase, Globe, FileText } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import smuLogo from '@/assets/smulogo.jpg';
 
 const BA_SMU = () => {
+  const { triggerPopup } = useCounselingPopup();
   const [activeSection, setActiveSection] = useState('overview');
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -105,10 +107,10 @@ const BA_SMU = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-primary">
+                  <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white" onClick={triggerPopup}>
                     Download Brochure
                   </Button>
-                  <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">
+                  <Button size="lg" className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-primary" onClick={triggerPopup}>
                     Apply Now
                   </Button>
                 </div>
