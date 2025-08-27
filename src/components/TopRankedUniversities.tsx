@@ -48,14 +48,14 @@ const TopRankedUniversities = () => {
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Manipal University Jaipur card - spans two rows */}
           <div className="relative overflow-hidden rounded-xl h-full row-span-2 group">
-            <div
-              className="p-6 h-full flex flex-col justify-end bg-cover bg-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/40"
-              style={{ backgroundImage: `url(${universities[0].image})` }}
-            >
-              <h3 className="text-xl font-bold text-black mb-1">{universities[0].name}</h3>
-              <a href={universities[0].link} className="flex items-center text-black hover:underline font-medium">
-                View all Courses →
-              </a>
+            <img src={universities[0].image} alt={universities[0].name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-lg font-bold text-foreground">{universities[0].name}</h3>
+              <Button asChild variant="link" className="text-primary text-sm font-medium">
+                <a href={universities[0].link}>
+                  View all Courses →
+                </a>
+              </Button>
             </div>
             {/* Custom Ranking Badge */}
             <div className="absolute top-0 left-4">
@@ -68,14 +68,14 @@ const TopRankedUniversities = () => {
 
           {/* Manipal Academy of Higher Education card - top right */}
           <div className="relative overflow-hidden rounded-xl h-full group">
-            <div
-              className="p-6 h-full flex flex-col justify-end bg-cover bg-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/40"
-              style={{ backgroundImage: `url(${universities[1].image})` }}
-            >
-              <h3 className="text-base font-bold text-black mb-1">{universities[1].name}</h3>
-              <a href={universities[1].link} className="flex items-center text-black hover:underline font-medium">
-                View all Courses →
-              </a>
+            <img src={universities[1].image} alt={universities[1].name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-lg font-bold text-foreground">{universities[1].name}</h3>
+              <Button asChild variant="link" className="text-primary text-sm font-medium">
+                <a href={universities[1].link}>
+                  View all Courses →
+                </a>
+              </Button>
             </div>
             {/* Custom Ranking Badge */}
             <div className="absolute top-0 left-4">
@@ -88,14 +88,14 @@ const TopRankedUniversities = () => {
 
           {/* Sikkim Manipal University card - bottom right */}
           <div className="relative overflow-hidden rounded-xl h-full group">
-            <div
-              className="p-6 h-full flex flex-col justify-end bg-cover bg-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/40"
-              style={{ backgroundImage: `url(${universities[2].image})` }}
-            >
-              <h3 className="text-base font-bold text-black mb-1">{universities[2].name}</h3>
-              <a href={universities[2].link} className="flex items-center text-black hover:underline font-medium">
-                View all Courses →
-              </a>
+            <img src={universities[2].image} alt={universities[2].name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-lg font-bold text-foreground">{universities[2].name}</h3>
+              <Button asChild variant="link" className="text-primary text-sm font-medium">
+                <a href={universities[2].link}>
+                  View all Courses →
+                </a>
+              </Button>
             </div>
             {/* Custom Ranking Badge */}
             <div className="absolute top-0 left-4">
