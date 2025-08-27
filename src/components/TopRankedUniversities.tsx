@@ -50,8 +50,8 @@ const TopRankedUniversities = () => {
           <div className="relative overflow-hidden rounded-xl h-full row-span-2 group border border-border">
             <img src={universities[0].image} alt={universities[0].name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
             <div className="p-4 bg-white flex items-center justify-between">
-              <h3 className="text-lg font-bold text-foreground">{universities[0].name}</h3>
-              <Button asChild variant="link" className="text-primary text-sm font-medium">
+              <h3 className="text-lg font-bold text-black">{universities[0].name}</h3>
+              <Button asChild variant="link" className="text-orange-500 text-sm font-medium transition-colors duration-200">
                 <a href={universities[0].link}>
                   View all Courses →
                 </a>
@@ -70,8 +70,8 @@ const TopRankedUniversities = () => {
           <div className="relative overflow-hidden rounded-xl h-full group border border-border">
             <img src={universities[1].image} alt={universities[1].name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
             <div className="p-4 bg-white flex items-center justify-between">
-              <h3 className="text-lg font-bold text-foreground">{universities[1].name}</h3>
-              <Button asChild variant="link" className="text-primary text-sm font-medium">
+              <h3 className="text-lg font-bold text-black">{universities[1].name}</h3>
+              <Button asChild variant="link" className="text-orange-500 text-sm font-medium transition-colors duration-200">
                 <a href={universities[1].link}>
                   View all Courses →
                 </a>
@@ -90,8 +90,8 @@ const TopRankedUniversities = () => {
           <div className="relative overflow-hidden rounded-xl h-full group border border-border">
             <img src={universities[2].image} alt={universities[2].name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
             <div className="p-4 bg-white flex items-center justify-between">
-              <h3 className="text-lg font-bold text-foreground">{universities[2].name}</h3>
-              <Button asChild variant="link" className="text-primary text-sm font-medium">
+              <h3 className="text-lg font-bold text-black">{universities[2].name}</h3>
+              <Button asChild variant="link" className="text-orange-500 text-sm font-medium transition-colors duration-200">
                 <a href={universities[2].link}>
                   View all Courses →
                 </a>
