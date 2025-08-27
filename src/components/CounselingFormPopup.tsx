@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar, Users, X } from 'lucide-react';
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 interface CounselingFormPopupProps {
   isOpen: boolean;
@@ -23,7 +23,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
 
   const courses = [
     'Online MBA',
-    'Online MCA', 
+    'Online MCA',
     'Online BBA',
     'Online BCA',
     'Online BCom',
@@ -35,18 +35,18 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    
+
     // Set session storage to remember form submission
     sessionStorage.setItem('counselingFormSubmitted', 'true');
     sessionStorage.setItem('counselingFormSubmittedTime', Date.now().toString());
-    
+
     onClose();
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-        {/* Close Button */}      <DialogContent className="max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mx-auto p-4 gap-0 bg-card/95 backdrop-blur-md border-border rounded-2xl shadow-lg min-h-[440px] md:min-h-[430px] lg:min-h-[470px]">
-
+      <DialogContent className="max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mx-auto p-4 gap-0 bg-card/95 backdrop-blur-md border-border rounded-2xl shadow-lg min-h-[440px] md:min-h-[387px] lg:min-h-[423px]">
+        {/* Close Button */}
         <Button
           variant="ghost"
           size="icon"
@@ -55,9 +55,6 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
         >
           <X className="h-4 w-4" />
         </Button>
-
-        <DialogTitle className="sr-only">Counseling Form</DialogTitle>
-        <DialogDescription className="sr-only">Fill out this form to get counseling information about our online courses</DialogDescription>
 
         <div className="text-center mb-3">
             <h3 className="text-sm font-bold text-foreground mb-1">
@@ -77,7 +74,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
                 Scholarships
               </div>
             </div>
-            <p className="text-xs text-card-foreground font-medium mb-2 lg:mb-2 xl:mb-2">
+            <p className="text-xs text-card-foreground font-medium mb-1">
               Submit your details and we'll contact you soon!
             </p>
           </div>
@@ -138,7 +135,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
             </Select>
 
             <div className="flex items-start space-x-2 mt-1">
-              <Checkbox 
+              <Checkbox
                 id="consent"
                 checked={formData.consent}
                 onCheckedChange={(checked) => setFormData({ ...formData, consent: checked as boolean })}
@@ -149,8 +146,8 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
               </label>
             </div>
 
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="w-full bg-gradient-primary hover:opacity-90 transition-smooth text-xs h-8 mt-1"
               disabled={!formData.consent}
             >
